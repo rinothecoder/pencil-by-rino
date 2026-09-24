@@ -1,0 +1,546 @@
+.pencil-ui,
+.pencil-ui *,
+.pencil-ui *::before,
+.pencil-ui *::after {
+	box-sizing: border-box;
+}
+
+.pencil-ui {
+	--pencil-accent: #7C3AED;
+	--pencil-accent-hover: #6d28d9;
+	--pencil-border: #e3e0ed;
+	--pencil-ink: #211a34;
+	--pencil-body: #393151;
+	--pencil-muted: #534b6a;
+	--pencil-panel: #fdfcfe;
+	--pencil-subtle: #f7f6fa;
+	--pencil-focus: rgba(124, 58, 237, 0.18);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	letter-spacing: normal;
+	line-height: 1.4;
+	text-align: left;
+	text-transform: none;
+	cursor: auto;
+}
+
+html.pencil-selection-active #wpadminbar {
+	cursor: auto;
+}
+
+.pencil-toolbar {
+	position: fixed;
+	z-index: 2147483000;
+	right: auto;
+	bottom: 22px;
+	left: 50%;
+	display: flex;
+	align-items: center;
+	min-height: 40px;
+	padding: 0;
+	border: 1px solid rgba(83, 75, 106, 0.18);
+	border-radius: 999px;
+	background: rgba(253, 252, 254, 0.62);
+	box-shadow: 0 16px 38px rgba(33, 26, 52, 0.18), 0 2px 8px rgba(33, 26, 52, 0.08);
+	transform: translateX(-50%);
+	backdrop-filter: blur(16px);
+	transition: background-color 140ms ease, box-shadow 140ms ease;
+}
+
+.pencil-toolbar:hover,
+.pencil-toolbar:focus-within {
+	background: rgba(253, 252, 254, 0.82);
+}
+
+.pencil-toolbar:focus-within {
+	box-shadow: 0 16px 38px rgba(33, 26, 52, 0.18), 0 2px 8px rgba(33, 26, 52, 0.08), 0 0 0 3px var(--pencil-focus);
+}
+
+.pencil-ui[hidden],
+.pencil-ui [hidden] {
+	display: none;
+}
+
+.pencil-toolbar__select {
+	appearance: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	min-height: 40px;
+	margin: 0;
+	padding: 0 16px 0 14px;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+	box-shadow: none;
+	color: var(--pencil-ink);
+	cursor: pointer;
+	font: inherit;
+	font-size: 13px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.pencil-toolbar__select:hover,
+.pencil-toolbar__select:focus-visible {
+	background: transparent;
+	outline: none;
+}
+
+.pencil-toolbar__select:focus-visible {
+	box-shadow: none;
+}
+
+.pencil-toolbar__select:disabled {
+	cursor: default;
+	opacity: 0.45;
+}
+
+.pencil-toolbar__select .dashicons {
+	width: 16px;
+	height: 16px;
+	color: var(--pencil-accent);
+	font-size: 16px;
+}
+
+html.pencil-media-open .pencil-toolbar,
+html.pencil-media-open .pencil-status,
+html.pencil-media-open .pencil-highlight,
+html.pencil-media-open .pencil-popup {
+	visibility: hidden;
+}
+
+/* Protect the frontend WordPress Media Library from common theme class collisions. */
+html.pencil-media-open .media-modal .media-frame {
+	position: absolute !important;
+	inset: 0 !important;
+	width: auto !important;
+	height: auto !important;
+	max-width: none !important;
+	max-height: none !important;
+	overflow: hidden !important;
+	background: transparent !important;
+}
+
+.pencil-status {
+	position: fixed;
+	z-index: 2147483001;
+	bottom: 72px;
+	left: 50%;
+	padding: 6px 10px;
+	border-radius: 999px;
+	background: rgba(33, 26, 52, 0.94);
+	box-shadow: 0 8px 24px rgba(33, 26, 52, 0.2);
+	color: var(--pencil-panel);
+	font-size: 12px;
+	font-weight: 650;
+	transform: translateX(-50%);
+}
+
+.pencil-highlight {
+	position: fixed;
+	z-index: 2147482998;
+	border: 2px solid var(--pencil-accent);
+	border-radius: 4px;
+	pointer-events: none;
+	transition: inset 80ms ease, width 80ms ease, height 80ms ease;
+}
+
+.pencil-highlight__label {
+	position: absolute;
+	top: -30px;
+	left: 0;
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	max-width: min(420px, calc(100vw - 32px));
+	min-height: 28px;
+	padding: 4px 5px 4px 9px;
+	border-radius: 6px;
+	background: var(--pencil-accent);
+	color: var(--pencil-panel);
+	font-size: 12px;
+	font-weight: 650;
+	line-height: 18px;
+	white-space: nowrap;
+}
+
+.pencil-highlight__text {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.pencil-highlight__action {
+	flex: none;
+	min-height: 20px;
+	padding: 1px 8px;
+	border-radius: 999px;
+	background: var(--pencil-panel);
+	color: var(--pencil-accent-hover);
+	pointer-events: auto;
+	text-decoration: none;
+}
+
+.pencil-highlight__action:hover,
+.pencil-highlight__action:focus-visible {
+	background: var(--pencil-subtle);
+	color: var(--pencil-accent-hover);
+	outline: 2px solid var(--pencil-panel);
+	outline-offset: 2px;
+}
+
+.pencil-highlight--managed {
+	border-style: dashed;
+	border-color: var(--pencil-muted);
+}
+
+.pencil-highlight--managed .pencil-highlight__label {
+	top: 0;
+	left: 0;
+	background: var(--pencil-muted);
+}
+
+.pencil-highlight--label-inside .pencil-highlight__label {
+	top: 6px;
+	left: 6px;
+}
+
+/* Keep the pencil over page content, including layout containers and field children. */
+html.pencil-selection-active:not(.pencil-media-open) body,
+html.pencil-selection-active:not(.pencil-media-open) body > :not(:where(.pencil-ui, #wpadminbar)),
+html.pencil-selection-active:not(.pencil-media-open) body > :not(:where(.pencil-ui, #wpadminbar)) *,
+html.pencil-selection-active:not(.pencil-media-open) body > :not(:where(.pencil-ui, #wpadminbar))::before,
+html.pencil-selection-active:not(.pencil-media-open) body > :not(:where(.pencil-ui, #wpadminbar))::after,
+html.pencil-selection-active:not(.pencil-media-open) body > :not(:where(.pencil-ui, #wpadminbar)) *::before,
+html.pencil-selection-active:not(.pencil-media-open) body > :not(:where(.pencil-ui, #wpadminbar)) *::after {
+	cursor: url("../img/cursor.svg") 5 19, pointer !important;
+}
+
+html.pencil-selection-active body [data-pencil-managed],
+html.pencil-selection-active body [data-pencil-managed] *,
+html.pencil-selection-active body [data-pencil-managed]::before,
+html.pencil-selection-active body [data-pencil-managed]::after,
+html.pencil-selection-active body [data-pencil-managed] *::before,
+html.pencil-selection-active body [data-pencil-managed] *::after {
+	cursor: auto !important;
+}
+
+.pencil-popup {
+	position: fixed;
+	z-index: 2147483001;
+	width: min(360px, calc(100vw - 32px));
+	padding: 18px;
+	border: 1px solid var(--pencil-border);
+	border-radius: 14px;
+	background: var(--pencil-panel);
+	box-shadow: 0 22px 55px rgba(33, 26, 52, 0.2), 0 4px 12px rgba(33, 26, 52, 0.08);
+	color: var(--pencil-ink);
+}
+
+.pencil-popup__label {
+	display: block;
+	margin: 0 0 10px;
+	color: var(--pencil-ink);
+	font-size: 13px;
+	font-weight: 650;
+}
+
+.pencil-popup__input {
+	appearance: none;
+	display: block;
+	width: 100%;
+	min-height: 42px;
+	max-height: 220px;
+	margin: 0;
+	padding: 10px 12px;
+	overflow-y: hidden;
+	border: 1px solid var(--pencil-border);
+	border-radius: 8px;
+	background: var(--pencil-panel);
+	box-shadow: none;
+	color: var(--pencil-ink);
+	font: inherit;
+	line-height: 1.5;
+	resize: none;
+}
+
+.pencil-popup__input:hover {
+	border-color: var(--pencil-muted);
+}
+
+.pencil-popup__input:focus {
+	border-color: var(--pencil-accent);
+	box-shadow: 0 0 0 3px var(--pencil-focus);
+	outline: none;
+}
+
+.pencil-popup--wide {
+	width: min(440px, calc(100vw - 32px));
+}
+
+.pencil-popup__toolbar {
+	display: flex;
+	gap: 2px;
+	margin: 0 0 8px;
+}
+
+.pencil-popup__tool {
+	appearance: none;
+	display: inline-grid;
+	width: 32px;
+	height: 32px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	box-shadow: none;
+	color: var(--pencil-muted);
+	cursor: pointer;
+	place-items: center;
+}
+
+.pencil-popup__tool:hover {
+	background: var(--pencil-subtle);
+	color: var(--pencil-ink);
+}
+
+.pencil-popup__tool[aria-pressed="true"] {
+	background: var(--pencil-subtle);
+	color: var(--pencil-accent-hover);
+}
+
+.pencil-popup__tool:focus-visible {
+	box-shadow: 0 0 0 3px var(--pencil-focus);
+	outline: none;
+}
+
+.pencil-popup__tool .dashicons {
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+}
+
+.pencil-popup__richtext {
+	min-height: 96px;
+	max-height: 280px;
+	padding: 10px 12px;
+	overflow-y: auto;
+	border: 1px solid var(--pencil-border);
+	border-radius: 8px;
+	background: var(--pencil-panel);
+	color: var(--pencil-ink);
+	font-size: 14px;
+	line-height: 1.5;
+	overflow-wrap: anywhere;
+}
+
+.pencil-popup__richtext:hover {
+	border-color: var(--pencil-muted);
+}
+
+.pencil-popup__richtext:focus {
+	border-color: var(--pencil-accent);
+	box-shadow: 0 0 0 3px var(--pencil-focus);
+	outline: none;
+}
+
+/* Reset theme typography inside the editor so it stays readable. */
+.pencil-popup__richtext p,
+.pencil-popup__richtext ul,
+.pencil-popup__richtext ol {
+	margin: 0 0 0.6em;
+	padding: 0;
+	color: inherit;
+	font: inherit;
+}
+
+.pencil-popup__richtext ul,
+.pencil-popup__richtext ol {
+	padding-left: 1.4em;
+}
+
+.pencil-popup__richtext ul {
+	list-style: disc;
+}
+
+.pencil-popup__richtext ol {
+	list-style: decimal;
+}
+
+.pencil-popup__richtext li {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+}
+
+.pencil-popup__richtext > :last-child {
+	margin-bottom: 0;
+}
+
+.pencil-popup__richtext a {
+	color: var(--pencil-accent-hover);
+	text-decoration: underline;
+}
+
+.pencil-popup__link {
+	display: flex;
+	gap: 8px;
+	margin-top: 8px;
+}
+
+.pencil-popup__link .pencil-popup__input {
+	flex: 1;
+	min-width: 0;
+}
+
+.pencil-popup__link .pencil-popup__button {
+	height: 42px;
+}
+
+.pencil-popup__button-editor {
+	display: grid;
+	gap: 12px;
+}
+
+.pencil-popup__field {
+	display: grid;
+	gap: 5px;
+	margin: 0;
+}
+
+.pencil-popup__field-label {
+	color: var(--pencil-muted);
+	font-size: 11px;
+	font-weight: 650;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.pencil-popup__image-editor {
+	display: grid;
+	gap: 10px;
+}
+
+.pencil-popup__image-preview {
+	aspect-ratio: 16 / 10;
+	overflow: hidden;
+	border: 1px solid var(--pencil-border);
+	border-radius: 9px;
+	background: var(--pencil-subtle);
+}
+
+.pencil-popup__image-preview img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.pencil-popup__replace {
+	appearance: none;
+	width: 100%;
+	height: 36px;
+	margin: 0;
+	padding: 0 14px;
+	border: 1px solid var(--pencil-border);
+	border-radius: 8px;
+	background: var(--pencil-panel);
+	box-shadow: none;
+	color: var(--pencil-ink);
+	cursor: pointer;
+	font: inherit;
+	font-weight: 600;
+}
+
+.pencil-popup__replace:hover {
+	background: var(--pencil-subtle);
+}
+
+.pencil-popup__replace:focus-visible {
+	box-shadow: 0 0 0 3px var(--pencil-focus);
+	outline: none;
+}
+
+.pencil-popup__error {
+	margin: 8px 0 0;
+	color: #b42318;
+	font-size: 12px;
+}
+
+.pencil-popup__actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 16px;
+}
+
+.pencil-popup__button {
+	appearance: none;
+	min-width: 72px;
+	height: 36px;
+	margin: 0;
+	padding: 0 14px;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	box-shadow: none;
+	cursor: pointer;
+	font: inherit;
+	font-weight: 600;
+}
+
+.pencil-popup__button:focus-visible {
+	box-shadow: 0 0 0 3px var(--pencil-focus);
+	outline: none;
+}
+
+.pencil-popup__button:disabled {
+	cursor: wait;
+	opacity: 0.6;
+}
+
+.pencil-popup__button--quiet {
+	border-color: var(--pencil-border);
+	background: var(--pencil-panel);
+	color: var(--pencil-ink);
+}
+
+.pencil-popup__button--quiet:hover {
+	background: var(--pencil-subtle);
+}
+
+.pencil-popup__button--primary {
+	background: var(--pencil-accent);
+	color: var(--pencil-panel);
+}
+
+.pencil-popup__button--primary:hover {
+	background: var(--pencil-accent-hover);
+}
+
+@media (max-width: 600px) {
+	.pencil-toolbar {
+		bottom: 14px;
+	}
+
+	.pencil-status {
+		bottom: 64px;
+	}
+
+	.pencil-popup {
+		right: 12px !important;
+		bottom: 76px !important;
+		left: 12px !important;
+		width: auto;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pencil-highlight,
+	.pencil-toolbar {
+		transition: none;
+	}
+}
