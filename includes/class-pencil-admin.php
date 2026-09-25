@@ -117,10 +117,10 @@ final class Pencil_Admin {
 		}
 
 		$tabs = array(
-			'changes'     => __( 'Changes', 'pencil-by-rino' ),
+			'changes'     => __( 'History', 'pencil-by-rino' ),
 			'get-started' => __( 'Get started', 'pencil-by-rino' ),
 			'about'       => __( 'About', 'pencil-by-rino' ),
-			'changelog'   => __( 'Changelog', 'pencil-by-rino' ),
+			'changelog'   => __( 'Release notes', 'pencil-by-rino' ),
 		);
 		?>
 		<div class="pencil-wrap">
@@ -137,6 +137,9 @@ final class Pencil_Admin {
 							<?php echo esc_html( $label ); ?>
 						</a>
 					<?php endforeach; ?>
+					<a class="pencil-header__open" href="<?php echo esc_url( add_query_arg( 'pencil-edit', '1', home_url( '/' ) ) ); ?>">
+						<?php esc_html_e( 'Open Pencil', 'pencil-by-rino' ); ?>
+					</a>
 				</nav>
 			</header>
 
@@ -157,35 +160,29 @@ final class Pencil_Admin {
 	private static function render_changes() {
 		$activities = Pencil_Activity::get_recent( 100 );
 		?>
-		<div class="pencil-content pencil-content--wide">
-
-			<div class="pencil-open-card">
-				<div>
-					<h2><?php esc_html_e( 'Edit your content on the live site', 'pencil-by-rino' ); ?></h2>
-					<p><?php esc_html_e( 'Pencil opens on the homepage. Click any highlighted text, image or button to change it.', 'pencil-by-rino' ); ?></p>
+		<div class="pencil-content pencil-content--onboarding">
+			<div class="pencil-card pencil-card--full pencil-changes">
+				<div class="pencil-page-intro">
+					<span class="pencil-eyebrow"><?php esc_html_e( 'Changelog', 'pencil-by-rino' ); ?></span>
+					<h2><?php esc_html_e( 'History', 'pencil-by-rino' ); ?></h2>
 				</div>
-				<a class="pencil-button" href="<?php echo esc_url( add_query_arg( 'pencil-edit', '1', home_url( '/' ) ) ); ?>">
-					<?php esc_html_e( 'Open Pencil', 'pencil-by-rino' ); ?>
-				</a>
+
+				<?php if ( empty( $activities ) ) : ?>
+					<div class="pencil-admin__empty">
+						<span class="dashicons dashicons-clock" aria-hidden="true"></span>
+						<h3><?php esc_html_e( 'No changes yet', 'pencil-by-rino' ); ?></h3>
+						<p><?php esc_html_e( 'Every change saved through Pencil appears here, with the value before and after.', 'pencil-by-rino' ); ?></p>
+					</div>
+				<?php else : ?>
+					<ul class="pencil-admin__list">
+						<?php foreach ( $activities as $activity ) : ?>
+							<li class="pencil-admin__record">
+								<?php self::render_activity_row( $activity ); ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
 			</div>
-
-			<h2 class="pencil-changes__heading"><?php esc_html_e( 'Recent changes', 'pencil-by-rino' ); ?></h2>
-
-			<?php if ( empty( $activities ) ) : ?>
-				<div class="pencil-admin__empty">
-					<span class="dashicons dashicons-clock" aria-hidden="true"></span>
-					<h3><?php esc_html_e( 'No changes yet', 'pencil-by-rino' ); ?></h3>
-					<p><?php esc_html_e( 'Every change saved through Pencil appears here, with the value before and after.', 'pencil-by-rino' ); ?></p>
-				</div>
-			<?php else : ?>
-				<ul class="pencil-admin__list">
-					<?php foreach ( $activities as $activity ) : ?>
-						<li class="pencil-admin__record">
-							<?php self::render_activity_row( $activity ); ?>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			<?php endif; ?>
 
 		</div>
 		<?php
@@ -205,6 +202,7 @@ final class Pencil_Admin {
 			array(
 				$prompt_intro,
 				__( 'Generate the website design and code inside the theme according to the prompt I provide. Build the first complete version and follow the Pencil instructions throughout the project.', 'pencil-by-rino' ),
+				__( 'Website link: [Insert link]', 'pencil-by-rino' ),
 				__( 'Website idea or design brief:', 'pencil-by-rino' ),
 			)
 		);
@@ -213,6 +211,7 @@ final class Pencil_Admin {
 			array(
 				$prompt_intro,
 				__( 'I am providing an HTML template. Start with the complete template package I provide and convert it into a maintainable custom WordPress theme by following the Pencil instructions.', 'pencil-by-rino' ),
+				__( 'Website link: [Insert link]', 'pencil-by-rino' ),
 				__( 'HTML template location or files:', 'pencil-by-rino' ),
 			)
 		);
@@ -264,19 +263,23 @@ final class Pencil_Admin {
 							</article>
 						</div>
 
-						<h3 class="pencil-section-heading"><?php esc_html_e( 'What happens next', 'pencil-by-rino' ); ?></h3>
+						<h3 class="pencil-section-heading"><?php esc_html_e( 'How to use it', 'pencil-by-rino' ); ?></h3>
 						<ol class="pencil-steps">
 							<li>
-								<strong><?php esc_html_e( 'Give the agent its starting material', 'pencil-by-rino' ); ?></strong>
-								<?php esc_html_e( 'Paste the complete starter prompt into your coding tool and add your idea or HTML package. Connect the agent through project files, MCP, or another WordPress integration when available.', 'pencil-by-rino' ); ?>
+								<strong><?php esc_html_e( 'Connect your coding tool to WordPress', 'pencil-by-rino' ); ?></strong>
+								<?php esc_html_e( 'Connect it to this website through MCP or another WordPress integration, or open your local WordPress installation as a project folder.', 'pencil-by-rino' ); ?>
 							</li>
 							<li>
-								<strong><?php esc_html_e( 'Let the agent build and configure WordPress', 'pencil-by-rino' ); ?></strong>
-								<?php esc_html_e( 'The agent builds the theme, creates the pages, imports editable images, and follows the complete instructions included with Pencil.', 'pencil-by-rino' ); ?>
+								<strong><?php esc_html_e( 'Use a starter prompt', 'pencil-by-rino' ); ?></strong>
+								<?php esc_html_e( 'Copy the prompt for your starting point, then add the website link and your idea or HTML template location.', 'pencil-by-rino' ); ?>
 							</li>
 							<li>
-								<strong><?php esc_html_e( 'Review the result in Pencil', 'pencil-by-rino' ); ?></strong>
-								<?php esc_html_e( 'Check every page, open Pencil, and test text, buttons and image replacement before handing the website to a client.', 'pencil-by-rino' ); ?>
+								<strong><?php esc_html_e( 'Let the agent build or convert the theme', 'pencil-by-rino' ); ?></strong>
+								<?php esc_html_e( 'The agent builds the theme, creates the pages, imports editable images, and follows the Pencil instructions.', 'pencil-by-rino' ); ?>
+							</li>
+							<li>
+								<strong><?php esc_html_e( 'Review and refine the result', 'pencil-by-rino' ); ?></strong>
+								<?php esc_html_e( 'Check every page, test text, buttons and images in Pencil, and ask your agent to fix anything that needs work.', 'pencil-by-rino' ); ?>
 							</li>
 						</ol>
 
@@ -322,6 +325,10 @@ final class Pencil_Admin {
 		?>
 		<div class="pencil-content">
 			<div class="pencil-card pencil-about">
+				<div class="pencil-page-intro">
+					<span class="pencil-eyebrow"><?php esc_html_e( 'About', 'pencil-by-rino' ); ?></span>
+					<h2><?php esc_html_e( 'The story behind Pencil', 'pencil-by-rino' ); ?></h2>
+				</div>
 				<img src="<?php echo esc_url( PENCIL_PLUGIN_URL . 'admin/img/rino-profile.jpg' ); ?>" alt="Rino de Boer" class="pencil-about__photo" width="80" height="80">
 
 				<p>Hey, my name is Rino. I'm a Dutch web designer, and I have built websites with a pagebuilder for years.</p>
@@ -363,12 +370,28 @@ final class Pencil_Admin {
 		?>
 		<div class="pencil-content">
 			<div class="pencil-card">
+				<div class="pencil-page-intro">
+					<span class="pencil-eyebrow"><?php esc_html_e( 'Release notes', 'pencil-by-rino' ); ?></span>
+					<h2><?php esc_html_e( 'What is new in Pencil', 'pencil-by-rino' ); ?></h2>
+				</div>
 
 				<div class="pencil-changelog__ideas">
 					<p><?php esc_html_e( 'Got an idea, or feedback on something that could be better? I would like to hear it. The best ideas end up in the plugin, with your name next to them.', 'pencil-by-rino' ); ?></p>
 					<a href="<?php echo esc_url( PENCIL_FEEDBACK_URL ); ?>" target="_blank" rel="noopener noreferrer" class="pencil-button">
 						<?php esc_html_e( 'Share an idea or feedback', 'pencil-by-rino' ); ?>
 					</a>
+				</div>
+
+				<div class="pencil-changelog__release">
+					<div class="pencil-changelog__release-header">
+						<span class="pencil-changelog__version">v0.9.2</span>
+						<span class="pencil-changelog__date"><?php esc_html_e( 'September 2026', 'pencil-by-rino' ); ?></span>
+					</div>
+					<ul class="pencil-changelog__list">
+						<li><?php esc_html_e( 'Refined the History, About and Release notes screens so they share the same page structure.', 'pencil-by-rino' ); ?></li>
+						<li><?php esc_html_e( 'Made the active frontend editing control easier to recognise.', 'pencil-by-rino' ); ?></li>
+						<li><?php esc_html_e( 'Clarified the setup steps and added a website link field to both starter prompts.', 'pencil-by-rino' ); ?></li>
+					</ul>
 				</div>
 
 				<div class="pencil-changelog__release">

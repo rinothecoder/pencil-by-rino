@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Pencil by Rino
  * Description: Frontend content editing for AI-built WordPress themes. The theme owns the design, your client edits the words and images.
- * Version: 0.9.1
+ * Version: 0.9.2
  * Author: Rino de Boer
  * Text Domain: pencil-by-rino
  * Requires at least: 6.4
@@ -13,12 +13,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PENCIL_VERSION', '0.9.1' );
+define( 'PENCIL_VERSION', '0.9.2' );
 define( 'PENCIL_PLUGIN_FILE', __FILE__ );
 define( 'PENCIL_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PENCIL_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-// Ideas and feedback form shown on the Changelog tab.
+// Ideas and feedback form shown on the Release notes tab.
 define( 'PENCIL_FEEDBACK_URL', 'https://rinodeboer.fillout.com/pencil-by-rino' );
 define( 'PENCIL_SUPPORT_URL', 'https://wordpress.org/support/plugin/pencil-by-rino/' );
 

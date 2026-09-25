@@ -105,6 +105,28 @@ html.pencil-selection-active #wpadminbar {
 	font-size: 16px;
 }
 
+html.pencil-selection-active .pencil-toolbar {
+	border-color: rgba(124, 58, 237, 0.5);
+	background: rgba(124, 58, 237, 0.2);
+	box-shadow: 0 16px 38px rgba(72, 35, 148, 0.28), 0 2px 8px rgba(33, 26, 52, 0.12);
+}
+
+html.pencil-selection-active .pencil-toolbar__select {
+	background: rgba(124, 58, 237, 0.88);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+	color: #fff;
+	backdrop-filter: blur(16px);
+}
+
+html.pencil-selection-active .pencil-toolbar__select:hover,
+html.pencil-selection-active .pencil-toolbar__select:focus-visible {
+	background: rgba(109, 40, 217, 0.94);
+}
+
+html.pencil-selection-active .pencil-toolbar__select .dashicons {
+	color: currentcolor;
+}
+
 html.pencil-media-open .pencil-toolbar,
 html.pencil-media-open .pencil-status,
 html.pencil-media-open .pencil-highlight,

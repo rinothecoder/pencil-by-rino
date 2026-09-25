@@ -4,7 +4,7 @@ Tags: frontend editing, ai, custom theme, content editing, client editing
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.9.1
+Stable tag: 0.9.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,7 +32,7 @@ Pencil needs an AI agent to build the theme. The plugin ships with instructions 
 * Fixed image frames, so a replaced image never changes the layout
 * Per-page content for templates shared by several pages
 * An **Open Pencil** button on the frontend for Administrators and Editors
-* A **Changes** tab listing who changed what, where and when, with before and after
+* A **History** tab listing who changed what, where and when, with before and after
 * A **Get started** tab with separate workflows for building from an idea or converting an HTML template
 * Copyable starter prompts and complete instructions for your AI coding agent
 * A reusable default theme screenshot for projects that do not yet have a custom one
@@ -61,6 +61,11 @@ Administrators and Editors. Use the `pencil_can_edit` filter to change that.
 Yes. Each field has a stable ID, and a saved value always wins over the theme's default. When the AI redesigns a section later, the client's content stays.
 
 == Changelog ==
+
+= 0.9.2 =
+* Refined the History, About and Release notes screens so they share the same page structure.
+* Made the active frontend editing control easier to recognise.
+* Clarified the setup steps and added a website link field to both starter prompts.
 
 = 0.9.1 =
 * Protect the frontend WordPress Media Library from common theme CSS class collisions.

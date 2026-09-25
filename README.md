@@ -43,7 +43,7 @@ The theme remains responsible for its design and safe fallback output. Pencil ow
 
 ## Status
 
-Version 0.9.1 is a public prerelease for testing and feedback before a possible WordPress.org 1.0 release.
+Version 0.9.2 is a public prerelease for testing and feedback before a possible WordPress.org 1.0 release.
 
 [Share an idea or report a problem](https://rinodeboer.fillout.com/pencil-by-rino)
 

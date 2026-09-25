@@ -391,6 +391,7 @@
 	const setActive = ( nextActive ) => {
 		active = nextActive;
 		document.documentElement.classList.toggle( 'pencil-selection-active', active );
+		toggle.setAttribute( 'aria-pressed', active ? 'true' : 'false' );
 		( toggle.querySelector( '[data-pencil-toggle-label]' ) || toggle ).textContent = active ? labels.closePencil : labels.openPencil;
 
 		fields.forEach( ( field ) => {

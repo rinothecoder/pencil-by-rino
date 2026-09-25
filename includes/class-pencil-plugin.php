@@ -177,9 +177,9 @@ final class Pencil_Plugin {
 		}
 		?>
 		<div class="pencil-ui pencil-toolbar" data-pencil-toolbar hidden>
-			<button class="pencil-toolbar__select" type="button" data-pencil-toggle>
-				<span class="dashicons dashicons-edit" aria-hidden="true"></span>
+			<button class="pencil-toolbar__select" type="button" data-pencil-toggle aria-pressed="false">
 				<span data-pencil-toggle-label><?php esc_html_e( 'Open Pencil', 'pencil-by-rino' ); ?></span>
+				<span class="dashicons dashicons-edit" aria-hidden="true"></span>
 			</button>
 		</div>
 

@@ -42,6 +42,8 @@ Then split the static template into maintainable WordPress theme files, enqueue 
 
 The agent needs access to the complete WordPress project, not only a screenshot or isolated HTML file. It also needs a way to create pages, configure WordPress, and import Media Library files through WP-CLI, an API, an integration, or the WordPress admin.
 
+If optional installed skills are relevant to the task, name the ones you propose to use and ask the user before applying them.
+
 Both paths finish with the same required checks at the end of this document.
 
 ## Pencil theme compatibility contract
