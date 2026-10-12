@@ -31,6 +31,7 @@ require_once PENCIL_PLUGIN_PATH . 'includes/class-pencil-plugin.php';
 require_once PENCIL_PLUGIN_PATH . 'includes/template-functions.php';
 require_once PENCIL_PLUGIN_PATH . 'includes/class-pencil-client.php';
 require_once PENCIL_PLUGIN_PATH . 'includes/class-pencil-comments.php';
+require_once PENCIL_PLUGIN_PATH . 'includes/class-pencil-abilities.php';
 
 register_activation_hook( PENCIL_PLUGIN_FILE, array( 'Pencil_Activity', 'install' ) );
 
@@ -39,6 +40,7 @@ Pencil_Admin::init();
 Pencil_Plugin::init();
 Pencil_Client::init();
 Pencil_Comments::init();
+Pencil_Abilities::init();
 
 require_once PENCIL_PLUGIN_PATH . 'includes/class-pencilino-updates.php';
 Pencilino_Updates::boot();
