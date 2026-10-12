@@ -146,6 +146,7 @@ final class Pencil_Admin {
 					</a>
 				</nav>
 			</header>
+			<hr class="wp-header-end">
 
 			<div data-tab-panel="changes"><?php self::render_changes(); ?></div>
 			<div data-tab-panel="comments" hidden><?php self::render_comments(); ?></div>
@@ -175,6 +176,7 @@ final class Pencil_Admin {
 			</form>
 		</div></div>
 		<?php
+		Pencilino_Updates::screen();
 	}
 
 	private static function render_comments() {

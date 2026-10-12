@@ -837,3 +837,8 @@
 @media(prefers-reduced-motion:reduce){.pencil-setting-switch__track,.pencil-setting-switch__track::after{transition:none}}
 .pencil-wrap .pencil-settings-notice{background:var(--pencil-subtle);padding:16px;border-radius:8px}
 .pencil-comment-filters,.pencil-comment-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.pencil-comment-actions form{margin:0}.pencil-comment-record{border-top:1px solid var(--pencil-border);padding:24px 0}.pencil-comment-heading{display:flex;justify-content:space-between;align-items:center;gap:16px}.pencil-comment-heading h3{margin:0}.pencil-comment-badge{background:var(--pencil-subtle);color:var(--pencil-accent);border-radius:999px;font-size:12px;font-weight:600;padding:4px 12px}.pencil-card .pencil-comment-text{white-space:pre-wrap;margin:16px 0}.pencil-card .pencil-comment-meta{font-size:13px;color:var(--pencil-muted)}.pencil-comment-empty{padding:24px 0}.pencil-wrap .pencil-button--quiet{background:var(--pencil-subtle);color:var(--pencil-ink)}.pencil-wrap .pencil-button--quiet:hover{background:var(--pencil-border)}
+
+/* Admin notices: shown below the header, in the gray area. wp-header-end moves them there; hidden until then so nothing jumps. */
+body.toplevel_page_pencil-by-rino #wpbody-content>div.notice,body.toplevel_page_pencil-by-rino #wpbody-content>div.updated,body.toplevel_page_pencil-by-rino #wpbody-content>div.error{display:none}
+.pencil-wrap>div.notice,.pencil-wrap>div.updated,.pencil-wrap>div.error{box-sizing:border-box;max-width:680px;width:calc(100% - 80px);margin:24px auto 0}
+@media(max-width:782px){.pencil-wrap>div.notice,.pencil-wrap>div.updated,.pencil-wrap>div.error{width:calc(100% - 48px)}}

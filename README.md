@@ -56,3 +56,9 @@ The WordPress.org-compatible plugin source does not include the former GitHub up
 ## License
 
 GPL-2.0-or-later. See [LICENSE](LICENSE).
+
+## GitHub updates
+
+Published stable releases appear in WordPress plugin updates. No GitHub token or wp-config.php change is needed. Use **Pencilino → Settings → Check for updates** to refresh immediately. Automatic updates follow your WordPress choice. Updates preserve content, comments, and settings.
+
+For a release, bump the plugin version and readme stable tag, commit the changes, and publish a matching stable GitHub release such as `v2.0.4`. Attach an installable ZIP containing the `pencilino-by-rino/` folder for first installations. Existing installations without an updater need a one-time ZIP update to get this version.
