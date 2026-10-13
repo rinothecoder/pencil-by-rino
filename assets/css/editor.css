@@ -5,16 +5,31 @@
 	box-sizing: border-box;
 }
 
-.pencil-ui {
+/*
+ * Brand tokens. Declared on :where(:root) (zero specificity) so a host can
+ * re-brand with a plain :root { --pencil-accent: ...; } in any order.
+ * RGB triplets feed the translucent toolbar states.
+ */
+:where(:root) {
 	--pencil-accent: #7C3AED;
+	--pencil-accent-rgb: 124, 58, 237;
 	--pencil-accent-hover: #6d28d9;
+	--pencil-accent-hover-rgb: 109, 40, 217;
+	--pencil-on-accent: #fff;
 	--pencil-border: #e3e0ed;
 	--pencil-ink: #211a34;
+	--pencil-ink-rgb: 33, 26, 52;
 	--pencil-body: #393151;
 	--pencil-muted: #534b6a;
+	--pencil-muted-rgb: 83, 75, 106;
 	--pencil-panel: #fdfcfe;
+	--pencil-panel-rgb: 253, 252, 254;
 	--pencil-subtle: #f7f6fa;
 	--pencil-focus: rgba(124, 58, 237, 0.18);
+	--pencil-error: #b42318;
+}
+
+.pencil-ui {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 	font-size: 14px;
 	font-style: normal;
@@ -40,10 +55,10 @@ html.pencil-selection-active #wpadminbar {
 	align-items: center;
 	min-height: 40px;
 	padding: 0;
-	border: 1px solid rgba(83, 75, 106, 0.18);
+	border: 1px solid rgba(var(--pencil-muted-rgb), 0.18);
 	border-radius: 999px;
-	background: rgba(253, 252, 254, 0.62);
-	box-shadow: 0 16px 38px rgba(33, 26, 52, 0.18), 0 2px 8px rgba(33, 26, 52, 0.08);
+	background: rgba(var(--pencil-panel-rgb), 0.62);
+	box-shadow: 0 16px 38px rgba(var(--pencil-ink-rgb), 0.18), 0 2px 8px rgba(var(--pencil-ink-rgb), 0.08);
 	transform: translateX(-50%);
 	backdrop-filter: blur(16px);
 	transition: background-color 140ms ease, box-shadow 140ms ease;
@@ -51,11 +66,11 @@ html.pencil-selection-active #wpadminbar {
 
 .pencil-toolbar:hover,
 .pencil-toolbar:focus-within {
-	background: rgba(253, 252, 254, 0.82);
+	background: rgba(var(--pencil-panel-rgb), 0.82);
 }
 
 .pencil-toolbar:focus-within {
-	box-shadow: 0 16px 38px rgba(33, 26, 52, 0.18), 0 2px 8px rgba(33, 26, 52, 0.08), 0 0 0 3px var(--pencil-focus);
+	box-shadow: 0 16px 38px rgba(var(--pencil-ink-rgb), 0.18), 0 2px 8px rgba(var(--pencil-ink-rgb), 0.08), 0 0 0 3px var(--pencil-focus);
 }
 
 .pencil-ui[hidden],
@@ -107,26 +122,26 @@ html.pencil-selection-active .pencil-client-logout{display:inline-flex}
 .pencil-toolbar__select .dashicons {
 	width: 16px;
 	height: 16px;
-	color: var(--pencil-accent);
+	color: var(--pencil-accent-text, var(--pencil-accent));
 	font-size: 16px;
 }
 
 html.pencil-selection-active .pencil-toolbar {
-	border-color: rgba(124, 58, 237, 0.5);
-	background: rgba(124, 58, 237, 0.2);
-	box-shadow: 0 16px 38px rgba(72, 35, 148, 0.28), 0 2px 8px rgba(33, 26, 52, 0.12);
+	border-color: rgba(var(--pencil-accent-rgb), 0.5);
+	background: rgba(var(--pencil-accent-rgb), 0.2);
+	box-shadow: 0 16px 38px rgba(var(--pencil-accent-hover-rgb), 0.28), 0 2px 8px rgba(var(--pencil-ink-rgb), 0.12);
 }
 
 html.pencil-selection-active .pencil-toolbar__select {
-	background: rgba(124, 58, 237, 0.88);
+	background: rgba(var(--pencil-accent-rgb), 0.88);
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
-	color: #fff;
+	color: var(--pencil-on-accent);
 	backdrop-filter: blur(16px);
 }
 
 html.pencil-selection-active .pencil-toolbar__select:hover,
 html.pencil-selection-active .pencil-toolbar__select:focus-visible {
-	background: rgba(109, 40, 217, 0.94);
+	background: rgba(var(--pencil-accent-hover-rgb), 0.94);
 }
 
 html.pencil-selection-active .pencil-toolbar__select .dashicons {
@@ -159,8 +174,8 @@ html.pencil-media-open .media-modal .media-frame {
 	left: 50%;
 	padding: 6px 10px;
 	border-radius: 999px;
-	background: rgba(33, 26, 52, 0.94);
-	box-shadow: 0 8px 24px rgba(33, 26, 52, 0.2);
+	background: rgba(var(--pencil-ink-rgb), 0.94);
+	box-shadow: 0 8px 24px rgba(var(--pencil-ink-rgb), 0.2);
 	color: var(--pencil-panel);
 	font-size: 12px;
 	font-weight: 650;
@@ -170,7 +185,7 @@ html.pencil-media-open .media-modal .media-frame {
 .pencil-highlight {
 	position: fixed;
 	z-index: 2147482998;
-	border: 2px solid var(--pencil-accent);
+	border: 2px solid var(--pencil-accent-line, var(--pencil-accent));
 	border-radius: 4px;
 	pointer-events: none;
 	transition: inset 80ms ease, width 80ms ease, height 80ms ease;
@@ -188,7 +203,7 @@ html.pencil-media-open .media-modal .media-frame {
 	padding: 4px 5px 4px 9px;
 	border-radius: 6px;
 	background: var(--pencil-accent);
-	color: var(--pencil-panel);
+	color: var(--pencil-on-accent);
 	font-size: 12px;
 	font-weight: 650;
 	line-height: 18px;
@@ -207,7 +222,7 @@ html.pencil-media-open .media-modal .media-frame {
 	padding: 1px 8px;
 	border-radius: 999px;
 	background: var(--pencil-panel);
-	color: var(--pencil-accent-hover);
+	color: var(--pencil-accent-text, var(--pencil-accent-hover));
 	pointer-events: auto;
 	text-decoration: none;
 }
@@ -215,7 +230,7 @@ html.pencil-media-open .media-modal .media-frame {
 .pencil-highlight__action:hover,
 .pencil-highlight__action:focus-visible {
 	background: var(--pencil-subtle);
-	color: var(--pencil-accent-hover);
+	color: var(--pencil-accent-text, var(--pencil-accent-hover));
 	outline: 2px solid var(--pencil-panel);
 	outline-offset: 2px;
 }
@@ -244,7 +259,8 @@ html.pencil-selection-active:not(.pencil-media-open) body > :not(:where(.pencil-
 html.pencil-selection-active:not(.pencil-media-open) body > :not(:where(.pencil-ui, #wpadminbar))::after,
 html.pencil-selection-active:not(.pencil-media-open) body > :not(:where(.pencil-ui, #wpadminbar)) *::before,
 html.pencil-selection-active:not(.pencil-media-open) body > :not(:where(.pencil-ui, #wpadminbar)) *::after {
-	cursor: url("../img/cursor.svg") 5 19, pointer !important;
+	/* A host sets --pencil-cursor to an absolute url(...) plus hotspot. */
+	cursor: var(--pencil-cursor, url("../img/cursor.svg") 5 19), pointer !important;
 }
 
 html.pencil-selection-active body [data-pencil-managed],
@@ -264,7 +280,7 @@ html.pencil-selection-active body [data-pencil-managed] *::after {
 	border: 1px solid var(--pencil-border);
 	border-radius: 14px;
 	background: var(--pencil-panel);
-	box-shadow: 0 22px 55px rgba(33, 26, 52, 0.2), 0 4px 12px rgba(33, 26, 52, 0.08);
+	box-shadow: 0 22px 55px rgba(var(--pencil-ink-rgb), 0.2), 0 4px 12px rgba(var(--pencil-ink-rgb), 0.08);
 	color: var(--pencil-ink);
 }
 
@@ -300,7 +316,7 @@ html.pencil-selection-active body [data-pencil-managed] *::after {
 }
 
 .pencil-popup__input:focus {
-	border-color: var(--pencil-accent);
+	border-color: var(--pencil-accent-line, var(--pencil-accent));
 	box-shadow: 0 0 0 3px var(--pencil-focus);
 	outline: none;
 }
@@ -338,7 +354,7 @@ html.pencil-selection-active body [data-pencil-managed] *::after {
 
 .pencil-popup__tool[aria-pressed="true"] {
 	background: var(--pencil-subtle);
-	color: var(--pencil-accent-hover);
+	color: var(--pencil-accent-text, var(--pencil-accent-hover));
 }
 
 .pencil-popup__tool:focus-visible {
@@ -371,7 +387,7 @@ html.pencil-selection-active body [data-pencil-managed] *::after {
 }
 
 .pencil-popup__richtext:focus {
-	border-color: var(--pencil-accent);
+	border-color: var(--pencil-accent-line, var(--pencil-accent));
 	box-shadow: 0 0 0 3px var(--pencil-focus);
 	outline: none;
 }
@@ -410,7 +426,7 @@ html.pencil-selection-active body [data-pencil-managed] *::after {
 }
 
 .pencil-popup__richtext a {
-	color: var(--pencil-accent-hover);
+	color: var(--pencil-accent-text, var(--pencil-accent-hover));
 	text-decoration: underline;
 }
 
@@ -495,7 +511,7 @@ html.pencil-selection-active body [data-pencil-managed] *::after {
 
 .pencil-popup__error {
 	margin: 8px 0 0;
-	color: #b42318;
+	color: var(--pencil-error);
 	font-size: 12px;
 }
 
@@ -542,7 +558,7 @@ html.pencil-selection-active body [data-pencil-managed] *::after {
 
 .pencil-popup__button--primary {
 	background: var(--pencil-accent);
-	color: var(--pencil-panel);
+	color: var(--pencil-on-accent);
 }
 
 .pencil-popup__button--primary:hover {
