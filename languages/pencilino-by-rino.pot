@@ -1,0 +1,758 @@
+# Copyright (C) 2026 Rino de Boer
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Pencilino by Rino 2.0.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pencilino-by-rino\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-06T07:43:07+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: pencilino-by-rino\n"
+
+#. Plugin Name of the plugin
+#: pencilino-by-rino.php
+#: includes/class-pencil-admin.php:44
+#: includes/class-pencil-admin.php:135
+msgid "Pencilino by Rino"
+msgstr ""
+
+#. Description of the plugin
+#: pencilino-by-rino.php
+msgid "Frontend content editing for AI-built WordPress themes. The theme owns the design, your client edits the words and images."
+msgstr ""
+
+#. Author of the plugin
+#: pencilino-by-rino.php
+msgid "Rino de Boer"
+msgstr ""
+
+#: includes/class-pencil-admin.php:45
+msgid "Pencilino"
+msgstr ""
+
+#: includes/class-pencil-admin.php:71
+#: includes/class-pencil-admin.php:145
+#: includes/class-pencil-plugin.php:162
+#: includes/class-pencil-plugin.php:192
+msgid "Open Pencilino"
+msgstr ""
+
+#: includes/class-pencil-admin.php:116
+msgid "You do not have permission to view this page."
+msgstr ""
+
+#: includes/class-pencil-admin.php:120
+#: includes/class-pencil-admin.php:224
+msgid "Changes"
+msgstr ""
+
+#: includes/class-pencil-admin.php:121
+#: includes/class-pencil-admin.php:191
+msgid "Comments"
+msgstr ""
+
+#: includes/class-pencil-admin.php:122
+msgid "Get started"
+msgstr ""
+
+#: includes/class-pencil-admin.php:123
+#: includes/class-pencil-admin.php:386
+msgid "About"
+msgstr ""
+
+#: includes/class-pencil-admin.php:124
+#: includes/class-pencil-admin.php:431
+msgid "Release notes"
+msgstr ""
+
+#: includes/class-pencil-admin.php:127
+msgid "Settings"
+msgstr ""
+
+#: includes/class-pencil-admin.php:164
+msgid "A simpler editing experience"
+msgstr ""
+
+#: includes/class-pencil-admin.php:164
+msgid "Client mode"
+msgstr ""
+
+#: includes/class-pencil-admin.php:166
+msgid "Settings saved."
+msgstr ""
+
+#: includes/class-pencil-admin.php:169
+msgid "Enable client mode"
+msgstr ""
+
+#: includes/class-pencil-admin.php:169
+msgid "Create the Clients role and simplify their editing screens."
+msgstr ""
+
+#: includes/class-pencil-admin.php:170
+msgid "Assign the Clients role to your client accounts in WordPress. Clients start on the website and use the existing managed-content links to open the correct editor."
+msgstr ""
+
+#: includes/class-pencil-admin.php:171
+msgid "The WordPress top bar and left menu are hidden. The editor sidebar stays available for featured images, categories, and content fields."
+msgstr ""
+
+#: includes/class-pencil-admin.php:172
+msgid "Static page content stays editable through the pencil. Clients can create, edit, and trash blog posts, products, and frontend-facing custom post types. Pages remain unavailable in the backend."
+msgstr ""
+
+#: includes/class-pencil-admin.php:173
+msgid "Disabling client mode keeps assigned users in the Clients role but removes their content-editing access until you enable it again or assign another role."
+msgstr ""
+
+#: includes/class-pencil-admin.php:174
+msgid "Save settings"
+msgstr ""
+
+#: includes/class-pencil-admin.php:191
+msgid "Client feedback"
+msgstr ""
+
+#: includes/class-pencil-admin.php:191
+msgid "Private notes attached to the website. Content changes stay in their own tab."
+msgstr ""
+
+#: includes/class-pencil-admin.php:192
+msgid "Comment status"
+msgstr ""
+
+#: includes/class-pencil-admin.php:193
+msgid "Open"
+msgstr ""
+
+#: includes/class-pencil-admin.php:194
+#: includes/class-pencil-admin.php:199
+msgid "Resolved"
+msgstr ""
+
+#: includes/class-pencil-admin.php:196
+msgid "No resolved comments yet."
+msgstr ""
+
+#: includes/class-pencil-admin.php:196
+msgid "No open comments."
+msgstr ""
+
+#: includes/class-pencil-admin.php:199
+msgid "Page element"
+msgstr ""
+
+#: includes/class-pencil-admin.php:199
+#: includes/class-pencil-plugin.php:229
+msgid "Comment"
+msgstr ""
+
+#: includes/class-pencil-admin.php:202
+msgid "View on website"
+msgstr ""
+
+#: includes/class-pencil-admin.php:203
+msgid "Reopen"
+msgstr ""
+
+#: includes/class-pencil-admin.php:203
+msgid "Resolve"
+msgstr ""
+
+#: includes/class-pencil-admin.php:207
+msgid "Comment pages"
+msgstr ""
+
+#: includes/class-pencil-admin.php:207
+msgid "Previous"
+msgstr ""
+
+#: includes/class-pencil-admin.php:207
+msgid "Next"
+msgstr ""
+
+#: includes/class-pencil-admin.php:223
+msgid "Content history"
+msgstr ""
+
+#: includes/class-pencil-admin.php:230
+msgid "No changes yet"
+msgstr ""
+
+#: includes/class-pencil-admin.php:231
+msgid "Every change saved through Pencilino appears here, with the value before and after."
+msgstr ""
+
+#: includes/class-pencil-admin.php:256
+msgid "We are going to build a custom WordPress theme that works with the Pencilino by Rino plugin. Pencilino has specific theme-building instructions that you must follow throughout the project. Find and read the complete instructions in WordPress admin under Pencilino > Get Started > For AI Agents, or locate docs/agent-instructions.md inside the active Pencilino plugin. If your environment cannot access them, ask me to copy them into this conversation."
+msgstr ""
+
+#: includes/class-pencil-admin.php:261
+msgid "Generate the website design and code inside the theme according to the prompt I provide. Build the first complete version and follow the Pencilino instructions throughout the project."
+msgstr ""
+
+#: includes/class-pencil-admin.php:262
+#: includes/class-pencil-admin.php:271
+msgid "Website link: [Insert link]"
+msgstr ""
+
+#: includes/class-pencil-admin.php:263
+msgid "Website idea or design brief:"
+msgstr ""
+
+#: includes/class-pencil-admin.php:270
+msgid "I am providing an HTML template. Start with the complete template package I provide and convert it into a maintainable custom WordPress theme by following the Pencilino instructions."
+msgstr ""
+
+#: includes/class-pencil-admin.php:272
+msgid "HTML template location or files:"
+msgstr ""
+
+#: includes/class-pencil-admin.php:280
+msgid "For you"
+msgstr ""
+
+#: includes/class-pencil-admin.php:281
+msgid "For AI agents"
+msgstr ""
+
+#: includes/class-pencil-admin.php:286
+msgid "Choose your starting point"
+msgstr ""
+
+#: includes/class-pencil-admin.php:287
+msgid "Build a custom theme with your AI coding tool"
+msgstr ""
+
+#: includes/class-pencil-admin.php:288
+msgid "Pencilino provides the editable content layer and the rules your agent follows. Your coding tool builds the WordPress theme."
+msgstr ""
+
+#: includes/class-pencil-admin.php:291
+msgid "Compatible AI coding tools"
+msgstr ""
+
+#: includes/class-pencil-admin.php:292
+msgid "Works with"
+msgstr ""
+
+#: includes/class-pencil-admin.php:293
+msgid "Codex"
+msgstr ""
+
+#: includes/class-pencil-admin.php:294
+msgid "Claude"
+msgstr ""
+
+#: includes/class-pencil-admin.php:295
+msgid "Cursor"
+msgstr ""
+
+#: includes/class-pencil-admin.php:296
+msgid "Any other coding agents"
+msgstr ""
+
+#: includes/class-pencil-admin.php:302
+msgid "Path 1"
+msgstr ""
+
+#: includes/class-pencil-admin.php:303
+msgid "Start from an idea"
+msgstr ""
+
+#: includes/class-pencil-admin.php:304
+msgid "Describe the website and let your agent design and build the complete theme from scratch."
+msgstr ""
+
+#: includes/class-pencil-admin.php:305
+#: includes/class-pencil-admin.php:316
+msgid "Prompt copied"
+msgstr ""
+
+#: includes/class-pencil-admin.php:306
+msgid "Copy starter prompt"
+msgstr ""
+
+#: includes/class-pencil-admin.php:313
+msgid "Path 2"
+msgstr ""
+
+#: includes/class-pencil-admin.php:314
+msgid "Convert an HTML template"
+msgstr ""
+
+#: includes/class-pencil-admin.php:315
+msgid "Give your agent the complete HTML package and have it preserve the design while turning it into a proper WordPress theme."
+msgstr ""
+
+#: includes/class-pencil-admin.php:317
+msgid "Copy conversion prompt"
+msgstr ""
+
+#: includes/class-pencil-admin.php:323
+msgid "How to use it"
+msgstr ""
+
+#: includes/class-pencil-admin.php:326
+msgid "Connect your coding tool to WordPress"
+msgstr ""
+
+#: includes/class-pencil-admin.php:327
+msgid "Connect it to this website through MCP or another WordPress integration, or open your local WordPress installation as a project folder."
+msgstr ""
+
+#: includes/class-pencil-admin.php:330
+msgid "Use a starter prompt"
+msgstr ""
+
+#: includes/class-pencil-admin.php:331
+msgid "Copy the prompt for your starting point, then add the website link and your idea or HTML template location."
+msgstr ""
+
+#: includes/class-pencil-admin.php:334
+msgid "Let the agent build or convert the theme"
+msgstr ""
+
+#: includes/class-pencil-admin.php:335
+msgid "The agent builds the theme, creates the pages, imports editable images, and follows the Pencilino instructions."
+msgstr ""
+
+#: includes/class-pencil-admin.php:338
+msgid "Review and refine the result"
+msgstr ""
+
+#: includes/class-pencil-admin.php:339
+msgid "Check every page, test text, buttons and images in Pencilino, and ask your agent to fix anything that needs work."
+msgstr ""
+
+#: includes/class-pencil-admin.php:345
+msgid "Later design changes"
+msgstr ""
+
+#: includes/class-pencil-admin.php:346
+msgid "Return to your agent with the same instructions. Saved content remains intact as long as the field IDs and types stay the same."
+msgstr ""
+
+#: includes/class-pencil-admin.php:349
+msgid "Client access"
+msgstr ""
+
+#: includes/class-pencil-admin.php:350
+msgid "Administrators and Editors can use Pencilino. For a simpler client experience, enable client mode in Settings and assign the Clients role to your client accounts."
+msgstr ""
+
+#: includes/class-pencil-admin.php:357
+msgid "The complete contract"
+msgstr ""
+
+#: includes/class-pencil-admin.php:358
+msgid "Instructions for the coding agent"
+msgstr ""
+
+#: includes/class-pencil-admin.php:359
+msgid "Copy these instructions into any coding agent, or let a connected agent read them through the WordPress files or MCP environment."
+msgstr ""
+
+#: includes/class-pencil-admin.php:362
+msgid "Copied"
+msgstr ""
+
+#: includes/class-pencil-admin.php:363
+msgid "Copy instructions"
+msgstr ""
+
+#: includes/class-pencil-admin.php:365
+msgid "Bundled with Pencilino:"
+msgstr ""
+
+#: includes/class-pencil-admin.php:367
+msgid "Instructions for AI agents"
+msgstr ""
+
+#: includes/class-pencil-admin.php:387
+msgid "The story behind Pencilino"
+msgstr ""
+
+#: includes/class-pencil-admin.php:432
+msgid "What is new in Pencilino"
+msgstr ""
+
+#: includes/class-pencil-admin.php:436
+msgid "Got an idea, or feedback on something that could be better? I would like to hear it. The best ideas end up in the plugin, with your name next to them."
+msgstr ""
+
+#: includes/class-pencil-admin.php:438
+msgid "Share an idea or feedback"
+msgstr ""
+
+#: includes/class-pencil-admin.php:444
+msgid "Private comments anywhere on the website, with a separate inbox and Resolve action."
+msgstr ""
+
+#: includes/class-pencil-admin.php:444
+msgid "Optional Clients role with simplified post and product editing screens."
+msgstr ""
+
+#: includes/class-pencil-admin.php:449
+#: includes/class-pencil-admin.php:459
+#: includes/class-pencil-admin.php:471
+#: includes/class-pencil-admin.php:482
+msgid "September 2026"
+msgstr ""
+
+#: includes/class-pencil-admin.php:452
+msgid "First stable release of Pencilino's frontend content editing workflow."
+msgstr ""
+
+#: includes/class-pencil-admin.php:462
+msgid "Refined the History, About and Release notes screens so they share the same page structure."
+msgstr ""
+
+#: includes/class-pencil-admin.php:463
+msgid "Made the active frontend editing control easier to recognise."
+msgstr ""
+
+#: includes/class-pencil-admin.php:464
+msgid "Clarified the setup steps and added a website link field to both starter prompts."
+msgstr ""
+
+#: includes/class-pencil-admin.php:474
+msgid "Protected the frontend Media Library from common theme CSS class collisions."
+msgstr ""
+
+#: includes/class-pencil-admin.php:475
+msgid "Added clearer AI-agent rules and tests for WordPress interface compatibility."
+msgstr ""
+
+#: includes/class-pencil-admin.php:485
+msgid "First public release. Written to WordPress plugin standards and checked with the official Plugin Check."
+msgstr ""
+
+#: includes/class-pencil-admin.php:486
+msgid "Text, rich text, button and image fields, editable on the live page."
+msgstr ""
+
+#: includes/class-pencil-admin.php:487
+msgid "Managed regions for content owned by ACF, JetEngine, WooCommerce or WordPress, with a link to the right edit screen."
+msgstr ""
+
+#: includes/class-pencil-admin.php:488
+msgid "Per-page content for templates shared by several pages."
+msgstr ""
+
+#: includes/class-pencil-admin.php:489
+msgid "A Changes log with who, where, when, and the value before and after."
+msgstr ""
+
+#: includes/class-pencil-admin.php:490
+msgid "Instructions for AI agents, included in the plugin."
+msgstr ""
+
+#: includes/class-pencil-admin.php:508
+msgid "Found a bug?"
+msgstr ""
+
+#: includes/class-pencil-admin.php:509
+msgid "Pencilino is a free plugin. There is no official support, but if you run into a bug I would like to know about it so I can fix it."
+msgstr ""
+
+#: includes/class-pencil-admin.php:510
+msgid "The best place to report a bug is GitHub Issues. Describe what happened, which AI tool built the theme, and I will take a look when I can."
+msgstr ""
+
+#: includes/class-pencil-admin.php:512
+msgid "Report a bug on GitHub"
+msgstr ""
+
+#: includes/class-pencil-admin.php:528
+msgid "Unknown user"
+msgstr ""
+
+#: includes/class-pencil-admin.php:549
+msgid "a site-wide field"
+msgstr ""
+
+#. translators: 1: user name with avatar, 2: page or location, 3: date and time.
+#: includes/class-pencil-admin.php:565
+#, php-format
+msgid "%1$s updated %2$s on %3$s"
+msgstr ""
+
+#: includes/class-pencil-admin.php:574
+#: includes/template-functions.php:263
+msgid "Edit"
+msgstr ""
+
+#: includes/class-pencil-admin.php:579
+msgid "Before:"
+msgstr ""
+
+#: includes/class-pencil-admin.php:581
+msgid "After:"
+msgstr ""
+
+#: includes/class-pencil-admin.php:624
+msgid "No image"
+msgstr ""
+
+#. translators: %d: Media attachment ID.
+#: includes/class-pencil-admin.php:631
+#, php-format
+msgid "Media #%d"
+msgstr ""
+
+#: includes/class-pencil-admin.php:643
+#: includes/class-pencil-admin.php:649
+msgid "Empty"
+msgstr ""
+
+#: includes/class-pencil-client.php:63
+msgid "Clients"
+msgstr ""
+
+#: includes/class-pencil-client.php:146
+msgid "You are logged out."
+msgstr ""
+
+#: includes/class-pencil-client.php:146
+msgid "You can now view the website without Pencilino."
+msgstr ""
+
+#. translators: %s: plural post type label.
+#: includes/class-pencil-client.php:146
+#: includes/class-pencil-client.php:244
+msgid "Back to website"
+msgstr ""
+
+#: includes/class-pencil-client.php:217
+msgid "Move to trash"
+msgstr ""
+
+#: includes/class-pencil-client.php:217
+msgid "Keep editing"
+msgstr ""
+
+#: includes/class-pencil-client.php:217
+msgid "Move this content to trash?"
+msgstr ""
+
+#: includes/class-pencil-client.php:217
+msgid "You can restore it from the trash later."
+msgstr ""
+
+#: includes/class-pencil-client.php:241
+msgid "Client"
+msgstr ""
+
+#: includes/class-pencil-client.php:242
+msgid "Client navigation"
+msgstr ""
+
+#. translators: %s: plural post type label.
+#: includes/class-pencil-client.php:243
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: includes/class-pencil-client.php:245
+#: includes/class-pencil-plugin.php:197
+msgid "Log out"
+msgstr ""
+
+#: includes/class-pencil-client.php:253
+msgid "You cannot change these settings."
+msgstr ""
+
+#: includes/class-pencil-comments.php:87
+#: includes/class-pencil-comments.php:169
+msgid "This comment could not be found."
+msgstr ""
+
+#: includes/class-pencil-comments.php:96
+msgid "Choose a page on this website."
+msgstr ""
+
+#: includes/class-pencil-comments.php:101
+msgid "Comments belong on the frontend website."
+msgstr ""
+
+#: includes/class-pencil-comments.php:134
+msgid "Write a comment of up to 5,000 characters."
+msgstr ""
+
+#: includes/class-pencil-comments.php:143
+msgid "Select an element to attach your comment."
+msgstr ""
+
+#: includes/class-pencil-comments.php:153
+msgid "The comment could not be saved. Please try again."
+msgstr ""
+
+#: includes/class-pencil-comments.php:173
+msgid "The comment status could not be saved."
+msgstr ""
+
+#: includes/class-pencil-comments.php:183
+msgid "You cannot resolve comments."
+msgstr ""
+
+#: includes/class-pencil-fields.php:120
+#: includes/class-pencil-plugin.php:87
+msgid "This content field is no longer available."
+msgstr ""
+
+#: includes/class-pencil-fields.php:242
+msgid "A page-scoped Pencilino field was rendered without a page. It is stored as a site-wide field instead."
+msgstr ""
+
+#: includes/class-pencil-fields.php:264
+msgid "Pencilino field IDs may contain lowercase letters, numbers, dots, dashes, and underscores."
+msgstr ""
+
+#: includes/class-pencil-fields.php:332
+msgid "Choose an image from the Media Library."
+msgstr ""
+
+#: includes/class-pencil-fields.php:354
+msgid "Add the button text."
+msgstr ""
+
+#: includes/class-pencil-fields.php:362
+msgid "Add a valid link, such as https://example.com or /contact."
+msgstr ""
+
+#. translators: %d: Maximum number of characters.
+#: includes/class-pencil-fields.php:414
+#, php-format
+msgid "Keep this text to %d characters or fewer."
+msgstr ""
+
+#: includes/class-pencil-plugin.php:163
+msgid "Close Pencilino"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:164
+msgid "Saved"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:165
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: includes/class-pencil-plugin.php:166
+msgid "Choose image"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:167
+msgid "Use image"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:168
+msgid "Post comment"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:169
+msgid "Comment posted"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:170
+msgid "Write a comment first."
+msgstr ""
+
+#: includes/class-pencil-plugin.php:171
+#: includes/class-pencil-plugin.php:290
+msgid "Save changes"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:172
+msgid "Page section"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:173
+msgid "The original element has changed. This comment is still saved with its page context."
+msgstr ""
+
+#: includes/class-pencil-plugin.php:174
+msgid "Select the text you want to turn into a link first."
+msgstr ""
+
+#: includes/class-pencil-plugin.php:224
+msgid "Selected element action"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:225
+msgid "Edit content"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:226
+msgid "Leave a comment"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:230
+msgid "Private feedback for your site team. This does not change the page."
+msgstr ""
+
+#: includes/class-pencil-plugin.php:234
+msgid "Open editor"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:241
+msgid "Formatting"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:244
+msgid "Bold"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:245
+msgid "Italic"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:246
+#: includes/class-pencil-plugin.php:272
+msgid "Link"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:247
+msgid "Bulleted list"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:248
+msgid "Numbered list"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:260
+#: includes/class-pencil-plugin.php:273
+msgid "https://example.com or /contact"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:260
+msgid "Link address"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:262
+msgid "Apply"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:268
+msgid "Text"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:281
+msgid "Replace image"
+msgstr ""
+
+#: includes/class-pencil-plugin.php:287
+msgid "Close"
+msgstr ""
+
+#. translators: %s: content provider name.
+#: includes/template-functions.php:258
+#, php-format
+msgid "Editable in %s"
+msgstr ""

@@ -7,6 +7,7 @@
  * Update URI: https://github.com/rinothecoder/pencilino/
  * Author: Rino de Boer
  * Text Domain: pencilino-by-rino
+ * Domain Path: /languages
  * Requires at least: 6.4
  * Requires PHP: 7.4
  * License: GPLv2 or later
@@ -34,6 +35,14 @@ require_once PENCIL_PLUGIN_PATH . 'includes/class-pencil-comments.php';
 require_once PENCIL_PLUGIN_PATH . 'includes/class-pencil-abilities.php';
 
 register_activation_hook( PENCIL_PLUGIN_FILE, array( 'Pencil_Activity', 'install' ) );
+
+add_action(
+	'init',
+	static function () {
+		load_plugin_textdomain( 'pencilino-by-rino', false, dirname( plugin_basename( PENCIL_PLUGIN_FILE ) ) . '/languages' );
+	},
+	1
+);
 
 Pencil_Activity::init();
 Pencil_Admin::init();
