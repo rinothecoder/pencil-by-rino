@@ -40,9 +40,36 @@ final class Pencil_Admin {
 		$svg  = file_get_contents( PENCIL_PLUGIN_PATH . 'admin/img/pencil-icon-white.svg' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		$icon = 'data:image/svg+xml;base64,' . base64_encode( $svg ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
 
+		/**
+		 * Filter the admin menu label.
+		 *
+		 * @param string $title Menu label.
+		 */
+		$menu_title = (string) apply_filters( 'pencil_admin_menu_title', __( 'Pencilino', 'pencilino-by-rino' ) );
+
+		/**
+		 * Filter the parent menu slug. Empty keeps Pencil as a top-level menu;
+		 * a slug such as `edit.php?post_type=page` moves it under that menu.
+		 *
+		 * @param string $parent Parent menu slug.
+		 */
+		$parent = (string) apply_filters( 'pencil_admin_menu_parent', '' );
+
+		if ( '' !== $parent ) {
+			self::$page_hook = (string) add_submenu_page(
+				$parent,
+				__( 'Pencilino by Rino', 'pencilino-by-rino' ),
+				$menu_title,
+				'edit_pages',
+				self::MENU_SLUG,
+				array( __CLASS__, 'render_page' )
+			);
+			return;
+		}
+
 		self::$page_hook = add_menu_page(
-			__( 'Pencilino by Rino', 'pencilino-by-rino' ),
-			__( 'Pencilino', 'pencilino-by-rino' ),
+__( 'Pencilino by Rino', 'pencilino-by-rino' ),
+			$menu_title,
 			'edit_pages',
 			self::MENU_SLUG,
 			array( __CLASS__, 'render_page' ),
@@ -123,9 +150,24 @@ final class Pencil_Admin {
 			'about'       => __( 'About', 'pencilino-by-rino' ),
 			'changelog'   => __( 'Release notes', 'pencilino-by-rino' ),
 		);
-		if ( current_user_can( 'manage_options' ) ) {
+if ( current_user_can( 'manage_options' ) ) {
 			$tabs['settings'] = __( 'Settings', 'pencilino-by-rino' );
 		}
+
+		/**
+		 * Filter the admin tabs. Removing a tab also removes its panel.
+		 *
+		 * @param array<string, string> $tabs Tab slug => label.
+		 */
+		$tabs   = (array) apply_filters( 'pencil_admin_tabs', $tabs );
+		$panels = array(
+			'changes'     => 'render_changes',
+			'comments'    => 'render_comments',
+			'settings'    => 'render_settings',
+			'get-started' => 'render_get_started',
+			'about'       => 'render_about',
+			'changelog'   => 'render_changelog',
+		);
 		?>
 		<div class="pencil-wrap">
 
@@ -148,12 +190,18 @@ final class Pencil_Admin {
 			</header>
 			<hr class="wp-header-end">
 
-			<div data-tab-panel="changes"><?php self::render_changes(); ?></div>
-			<div data-tab-panel="comments" hidden><?php self::render_comments(); ?></div>
-			<?php if ( current_user_can( 'manage_options' ) ) : ?><div data-tab-panel="settings" hidden><?php self::render_settings(); ?></div><?php endif; ?>
-			<div data-tab-panel="get-started" hidden><?php self::render_get_started(); ?></div>
-			<div data-tab-panel="about" hidden><?php self::render_about(); ?></div>
-			<div data-tab-panel="changelog" hidden><?php self::render_changelog(); ?></div>
+<?php
+			$first = true;
+			foreach ( $panels as $slug => $method ) :
+				if ( ! isset( $tabs[ $slug ] ) ) {
+					continue;
+				}
+				?>
+				<div data-tab-panel="<?php echo esc_attr( $slug ); ?>"<?php echo $first ? '' : ' hidden'; ?>><?php self::$method(); ?></div>
+				<?php
+				$first = false;
+			endforeach;
+			?>
 
 		</div>
 		<?php
