@@ -47,7 +47,13 @@ final class Pencil_Fields {
 		}
 
 		self::$fields[ $id ] = $schema;
-		self::persist_schema( $id, $schema );
+
+		// Only editors need the stored schema (REST saves validate against it).
+		// Writing it on visitor page views caused option writes on GET requests
+		// and lost updates when two first views raced.
+		if ( Pencil_Plugin::can_edit() ) {
+			self::persist_schema( $id, $schema );
+		}
 
 		return array(
 			'id'     => $id,
